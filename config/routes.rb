@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  # match '/users/:id', to: 'users#show', via: 'get'
+  devise_for :users, :path_prefix => 'd'
+  resources :users, :only => [:show,:index]
+  resources :events, only: %i[index create new show]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -6,5 +10,5 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   # Defines the root path route ("/")
-  # root "posts#index"
+ root "events#index"
 end

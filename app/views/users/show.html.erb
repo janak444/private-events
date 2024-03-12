@@ -1,0 +1,8 @@
+<p>Events created by </p>
+<p> 
+  <%= @user.first_name %>
+  <%= @user.last_name%>
+</p>
+<% @events.each do |event| %>
+<li><%= link_to event.event_name, event_path(event)  %></li>
+<% end %>

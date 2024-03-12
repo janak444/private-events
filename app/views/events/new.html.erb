@@ -1,0 +1,6 @@
+<h1> Create a event</h1>
+<%= form_with model: @event do |event| %>
+  <%= event.text_field :event_name, placeholder: "name" %>
+  <%= event.date_field :event_date, placeholder: "motto" %>
+  <%= event.submit %>
+<% end %>
