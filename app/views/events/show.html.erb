@@ -1,7 +1,10 @@
 <p>Event in details </p>
 
 <ul>
-      <li><%= @event.event_name %></li>
+      <p><%= @event.event_name %></p>
       <p><%= @event.event_date %></p>
       <p>created by: <%= @event.user.first_name %> <%= " "%><%= @event.user.last_name %></p>
+      <%= button_to 'Attend', attended_events_path(id: @event)%>
+
+      
 </ul>

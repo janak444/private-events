@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  # match '/users/:id', to: 'users#show', via: 'get'
+  
+  resources :attended_events, only: %i[create]
+
   devise_for :users, :path_prefix => 'd'
   resources :users, :only => [:show,:index]
   resources :events, only: %i[index create new show]
