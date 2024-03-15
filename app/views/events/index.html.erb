@@ -3,4 +3,18 @@
     <% @event.each do |event| %>
       <li><%= link_to event.event_name, event_path(event)  %></li>
     <% end %>
+
+    <%if @past_event.any?%>
+    <p> Past Event</p>
+    <% @past_event.each do |event| %>
+      <li><%= link_to event.event_name, event_path(event)  %></li>
+    <% end %>
+    <% end %>
+
+    <%if @upcomming_event.any?%>
+    <p> Upcomming Events</p>
+    <% @upcomming_event.each do |event| %>
+      <li><%= link_to event.event_name, event_path(event)  %></li>
+    <% end %>
+    <% end %>
 </ul>

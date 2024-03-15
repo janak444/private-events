@@ -1,10 +1,13 @@
 <p>Event in details </p>
 
-<ul>
       <p><%= @event.event_name %></p>
       <p><%= @event.event_date %></p>
       <p>created by: <%= @event.user.first_name %> <%= " "%><%= @event.user.last_name %></p>
       <%= button_to 'Attend', attended_events_path(id: @event)%>
-
-      
-</ul>
+      <ul>
+      <% if @event.attended_events.any? %>
+            <% @attendees.each do |attendee| %>
+                  <li><%= attendee.first_name  %><%= " "%><%= attendee.last_name  %></li>
+            <% end %>
+          <% end %>  
+      </ul>

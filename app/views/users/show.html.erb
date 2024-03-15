@@ -1,8 +1,26 @@
-<p>Events created by </p>
+<p>Profile: </p>
 <p> 
   <%= @user.first_name %>
   <%= @user.last_name%>
 </p>
+<p>Attended Events</p>
 <% @events.each do |event| %>
 <li><%= link_to event.event_name, event_path(event)  %></li>
 <% end %>
+<br>
+<p>Future events</p>
+<% @events.each do |event| %>
+<%if event.event_date>Date.today%>
+<li><%= link_to event.event_name, event_path(event)  %></li>
+<% end %>
+<%end%>
+
+<p>Past events</p>
+<% @events.each do |event| %>
+<%if event.event_date<Date.today%>
+<li><%= link_to event.event_name, event_path(event)  %></li>
+<% end %>
+
+<% end %>
+
+
